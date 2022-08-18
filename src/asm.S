@@ -10,11 +10,15 @@ start:
     mov rdx, 14 # size of char
     lea rsi, [helloworld + rip] # ptr of string
     syscall
+call_c_sharp:
+    sub rsp, 8 # 16bit alignment
+    call hello_fortran # call fortran function
+    add rsp, 8
 call_python:
     pop r10
     lea	rdi, [msg_from_asm + rip]
     sub rsp, 8 # 16bit alignment
-    call r10
+    call r10 # call python function
     add rsp, 8
     mov rax, 42
     ret

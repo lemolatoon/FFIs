@@ -3,10 +3,19 @@
 
 ## 今の工程
 ```
-python -> asm -> python -> asm 
+python -> asm -> fortran -> asm -> python -> asm 
 ```
 
 ## 実行方法
 ```
 make run
+```
+
+## 必要なツールチェイン
+```
+python3 gcc gfortran
+```
+apt を用いたインストール
+```
+sudo apt install python3 gcc gfortran
 ```
