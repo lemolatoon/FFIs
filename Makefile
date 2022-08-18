@@ -10,6 +10,6 @@ src/lib.so: src/asm.o
 	cd src && \
 	ld asm.o -shared -o lib.so
 
-run: src/lib.so
+run: src/lib.so src/python.py
 	cd src && \
 	LD_LIBRARY_PATH=. python3 python.py

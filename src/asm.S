@@ -1,10 +1,8 @@
 .intel_syntax noprefix
 
-
 .global start
 .global exit
 .text
-; start:
 start:
     push rdi # function pointer (arg0)
     mov rax, 1 # write
@@ -14,7 +12,7 @@ start:
     syscall
 call_python:
     pop r10
-	lea	rdi, [msg_from_asm + rip]
+    lea	rdi, [msg_from_asm + rip]
     sub rsp, 8 # 16bit alignment
     call r10
     add rsp, 8
