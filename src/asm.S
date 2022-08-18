@@ -12,6 +12,7 @@ start:
     syscall
 call_c_sharp:
     sub rsp, 8 # 16bit alignment
+    call print_rsp
     call hello_fortran # call fortran function
     add rsp, 8
 call_python:
@@ -26,9 +27,18 @@ exit:
     mov rax, 0x3c # exit
     mov rdi, 42 # status code
     syscall
+.global print_rsp
+print_rsp:
+    lea rdi, [p_fmt + rip]
+    mov rsi, rsp
+    mov eax, 0 # n_floating point
+    call printf
+    ret
 
 .data
 helloworld:
     .string "Hello, World! written in Assembly\n"
 msg_from_asm:
     .string "Message From Assembly"
+p_fmt:
+    .string "%p\n\0"
