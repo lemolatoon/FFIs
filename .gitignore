@@ -3,3 +3,5 @@ a.out
 *.so
 *.a
 /.vscode/
+temp.s
+test.s
