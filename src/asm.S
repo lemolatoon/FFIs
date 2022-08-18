@@ -11,14 +11,11 @@ start:
     lea rsi, [helloworld + rip] # ptr of string
     syscall
 call_c_sharp:
-    sub rsp, 8 # 16bit alignment
-    call print_rsp
     call hello_fortran # call fortran function
-    add rsp, 8
 call_python:
     pop r10
     lea	rdi, [msg_from_asm + rip]
-    sub rsp, 8 # 16bit alignment
+    sub rsp, 8 # 16bytes alignment
     call r10 # call python function
     add rsp, 8
     mov rax, 42
