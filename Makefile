@@ -1,18 +1,16 @@
-src/asm.o: src/asm.S
-	cd src && \
-	gcc asm.S -c -o asm.o
+FORTRAN_LIB=-lgfortran -lquadmath
 
-src/fortran.o: src/fortran.f90
+src/asm.so: src/asm.S
 	cd src && \
-	gcc fortran.f90 -c -o fortran.o
+	gcc asm.S -shared -o asm.so
 
-src/asm.bin: src/asm.o
+src/fortran.so: src/fortran.f90
 	cd src && \
-	ld asm.o -e start -o asm.bin
+	gfortran fortran.f90 -shared -o fortran.so
 
-src/lib.so: src/asm.o src/fortran.o
+src/lib.so: src/asm.so src/fortran.so
 	cd src && \
-	ld asm.o fortran.o -shared -o lib.so
+	ld asm.so fortran.so -shared -o lib.so
 
 run: src/lib.so src/python.py
 	cd src && \

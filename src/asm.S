@@ -7,7 +7,7 @@ start:
     push rdi # function pointer (arg0)
     mov rax, 1 # write
     mov rdi, 1 # stdout
-    mov rdx, 14 # size of char
+    mov rdx, 34 # size of char
     lea rsi, [helloworld + rip] # ptr of string
     syscall
 call_c_sharp:
