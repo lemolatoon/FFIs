@@ -3,5 +3,10 @@
 
 ## 今の工程
 ```
-asm -> python
+python -> asm -> python -> asm 
+```
+
+## 実行方法
+```
+make run
 ```
