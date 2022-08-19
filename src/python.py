@@ -4,17 +4,18 @@ from math import sqrt
 
 def main():
     lib_all_linked = ctypes.CDLL("lib.so")
-    callback = ctypes.CFUNCTYPE(None, ctypes.c_char_p)
-    lib_all_linked.start.argtypes = [callback]
-    lib_all_linked.start.restype = ctypes.c_int
-    status = lib_all_linked.start(callback(callbackFunc))
-    print("got status from asm: {}".format(status))
-
+    print("Hello World! from python")
     callback = ctypes.CFUNCTYPE(ctypes.c_int, ctypes.c_int)
     lib_all_linked.check_elapsed_time.argtypes = [callback, ctypes.c_char_p]
     lib_all_linked.check_elapsed_time.restype = None
     lib_all_linked.check_elapsed_time(
         callback(n_th_prime), ctypes.create_string_buffer(b"python"))
+
+    callback = ctypes.CFUNCTYPE(None, ctypes.c_char_p)
+    lib_all_linked.start.argtypes = [callback]
+    lib_all_linked.start.restype = ctypes.c_int
+    status = lib_all_linked.start(callback(callbackFunc))
+    print("got status from asm: {}".format(status))
 
     lib_all_linked.exit()
 

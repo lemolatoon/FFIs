@@ -65,8 +65,6 @@ module fortran_module
             end subroutine
         end interface
         print *, "Hello from Fortran"
-        pi = atan(1.0) * 4.0
-        print *, "pi = ", pi, " from Fortran" 
         func_ptr = c_funloc(f_n_th_prime) ! get function pointer
         name = "fortran"//c_null_char
         call check_elapsed_time(func_ptr, name)
