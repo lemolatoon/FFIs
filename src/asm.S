@@ -23,7 +23,7 @@ call_python:
 exit:
     mov rax, 1 # write
     mov rdi, 1 # stdout
-    lea rsi, [exit_msg + rip] # ptr of string
+    lea rsi, exit_msg[rip] # ptr of string
     mov rdx, 45 # size of char
     syscall
     mov rax, 0x3c # exit

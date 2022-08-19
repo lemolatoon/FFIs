@@ -6,3 +6,4 @@ a.out
 temp.s
 test.s
 *.s
+/tmp/

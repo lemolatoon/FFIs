@@ -45,7 +45,7 @@ pub extern "C" fn n_th_prime(n: c_int) -> c_int {
             }
             count += 1;
         }
-        current_n += 1
+        current_n += 1;
     }
 }
 

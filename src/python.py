@@ -28,7 +28,6 @@ def n_th_prime(n):
     current_n = 2
     while True:
         if is_prime(current_n):
-            # print(f"{count} : {current_n}")
             if count == n:
                 return current_n
             count += 1

@@ -3,7 +3,7 @@
 
 ## 今の工程
 ```
-python -> asm -> fortran -> asm -> python -> asm 
+python -> asm -> fortran -> Rust -> fortran -> asm -> python -> asm 
 ```
 
 ## 実行方法
