@@ -21,6 +21,11 @@ call_python:
     mov rax, 42
     ret
 exit:
+    mov rax, 1 # write
+    mov rdi, 1 # stdout
+    lea rsi, [exit_msg + rip] # ptr of string
+    mov rdx, 45 # size of char
+    syscall
     mov rax, 0x3c # exit
     mov rdi, 42 # status code
     syscall
@@ -39,3 +44,5 @@ msg_from_asm:
     .string "Message From Assembly"
 p_fmt:
     .string "%p\n\0"
+exit_msg:
+    .string "Exiting by x86-64 Assembly with status 42...\n"
